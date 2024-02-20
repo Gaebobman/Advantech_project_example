@@ -8,18 +8,14 @@ print("Current Mode: ", GPIO.getmode())
 # Switch example
 INPUT_PIN = 13
 GPIO.setup(INPUT_PIN, GPIO.IN)
-prev_input_state = GPIO.input(INPUT_PIN)
 
-while(True):    
+
+while True:    
     input_state = GPIO.input(INPUT_PIN)
-    
-    if input_state != prev_input_state:
-        if input_state == GPIO.LOW:
-            print("Switch pressed")
-        else:
-            print("Switch released")
-        prev_input_state = input_state
-   
+    if input_state == GPIO.LOW:
+        print("Switch pressed")
+    else:
+        print("Wating...")
     time.sleep(0.1) 
 
 
