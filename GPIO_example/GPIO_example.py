@@ -1,16 +1,26 @@
 import Jetson.GPIO as GPIO
 import time
 
- 
+GPIO.cleanup() 
 GPIO.setmode(GPIO.BOARD)
 print("Current Mode: ", GPIO.getmode())
 
 # Switch example
 INPUT_PIN = 13
 GPIO.setup(INPUT_PIN, GPIO.IN)
-while(True):
-    print(GPIO.input(INPUT_PIN))
+prev_input_state = GPIO.input(INPUT_PIN)
+
+while(True):    
+    input_state = GPIO.input(INPUT_PIN)
     
+    if input_state != prev_input_state:
+        if input_state == GPIO.LOW:
+            print("Switch pressed")
+        else:
+            print("Switch released")
+        prev_input_state = input_state
+   
+    time.sleep(0.1) 
 
 
 """
