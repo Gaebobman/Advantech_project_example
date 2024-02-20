@@ -3,7 +3,7 @@ import time
 
 PORT = '/dev/ttyACM0'
 BAUDRATE = 9600
-arduino = serial.Serial(PORT, BAUDRATE=115200, timeout=.1) 
+arduino = serial.Serial(PORT, BAUDRATE, timeout=1) 
 
 
 while True:
