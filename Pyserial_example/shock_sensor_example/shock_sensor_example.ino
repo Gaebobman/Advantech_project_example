@@ -1,5 +1,5 @@
 // Define the shock sensor
-int shock = 3
+int shock = 3;
 int val; // define a numeric variable val 
 
 void setup () {
@@ -10,7 +10,7 @@ void setup () {
 } 
 
 void loop () {
-	val = digitalRead (shock); // read the value from KY-002
+	val = digitalRead(shock); // read the value from KY-002
   delay(500);
   Serial.print("State: ");
 	if (val == HIGH ) {// when sensor detects shock, LED flashes  
